@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+       var scale;
+        function setup() {
+            createCanvas(800,800);
+            scale=1;
+        }
+        
+        function draw() {
+         fill(random(455),random(425),random(405))
+            ellipse(mouseX,mouseY,scale*100,scale*100)
+            line(mouseX,mouseY,scale*300,scale*400)
+            stroke('60')
+            line(mouseX,mouseY,scale*353,scale*430)
+            line(mouseX,mouseY,scale*400,scale*440)
+            line(mouseX,mouseY,scale*460,scale*437)
+            line(mouseX,mouseY,scale*510,scale*425)
+            line(mouseX,mouseY,scale*600,scale*440)
+            
+        }
+    
+         function mouseDragged() {
+          scale+=.01;
+         }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/katyaa4703/p5js/blob/gh-pages/FILENAME.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
