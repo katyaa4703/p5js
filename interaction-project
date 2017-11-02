@@ -9,23 +9,31 @@
        var scale;
         function setup() {
             createCanvas(800,800);
-            scale=1;
+            scale=1;   //when mouse is pressed the ellipse will increase in size
         }
         
         function draw() {
-         fill(random(455),random(425),random(405))
-            ellipse(mouseX,mouseY,scale*100,scale*100)
-            line(mouseX,mouseY,scale*300,scale*400)
+         fill(random(455),random(425),random(405))  //there will be random colors appearing on the circles when in action
+            ellipse(mouseX,mouseY,scale*100,scale*100)  //circle will be able to move due to mouseX and mouseY and will also increase in size when mouse is pressed
+            line(mouseX,mouseY,scale*300,scale*400)     //line will be moved due to mouseX and mouseY and it will also increase in lenght due to its value being multiplied by the scale
             stroke('60')
-            line(mouseX,mouseY,scale*353,scale*430)
-            line(mouseX,mouseY,scale*400,scale*440)
-            line(mouseX,mouseY,scale*460,scale*437)
-            line(mouseX,mouseY,scale*510,scale*425)
-            line(mouseX,mouseY,scale*600,scale*440)
+            line(mouseX,mouseY,scale*353,scale*430)  //line will be moved due to mouseX and mouseY and it will also increase in lenght due to its value being multiplied by the scale
+            line(mouseX,mouseY,scale*400,scale*440)  //line will be moved due to mouseX and mouseY and it will also increase in lenght due to its value being multiplied by the scale
+            line(mouseX,mouseY,scale*460,scale*437)  //line will be moved due to mouseX and mouseY and it will also increase in lenght due to its value being multiplied by the scale
+            line(mouseX,mouseY,scale*510,scale*425)  //line will be moved due to mouseX and mouseY and it will also increase in lenght due to its value being multiplied by the scale
+            line(mouseX,mouseY,scale*600,scale*440)  //line will be moved due to mouseX and mouseY and it will also increase in lenght due to its value being multiplied by the scale
+            
+            fill(random(455),random(425),random(405))  //a variety of colors will also appear on the squares but at a faster speed
+            rect(467,200,100,100)  //square will stay in place
+            rect(400,200,100,100)  //square will stay in place
+            rect(300,200,100,100)  //square will stay in place
+            rect(200,200,100,100)  //square will stay in place
+            rect(100,200,100,100)  //square will stay in place
+            rect(3,200,100,100)    //square will stay in place
             
         }
     
-         function mouseDragged() {
+         function mouseDragged() {  //more lines and circles will be made when the mouse is dragged across the screen
           scale+=.01;
          }
     </script>
