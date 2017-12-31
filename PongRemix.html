@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  
+<head>
+    <title>Pong</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script> 
+        var ballX; //sets ball
+        var ballY; //sets ball
+        var ballSpeedX = 3; //speeddirection at which ball will go
+        var ballSpeedY = 5; //speed at which ball will land
+        var paddleHeight = 30; //size of paddle
+        var paddleWidth = 200; //size of paddle
+        var paddleY= 45;
+        var score = 0; //initial score
+        var paused;
+        
+        function setup() {
+            createCanvas(600, 500); //sets size of canvas
+            noCursor(); //hides mouse cursor when mouse is moved
+            ballX = random(300); //starting position of ball
+            ballY = random(height / 2); //starting position of ball
+            noCursor(); //mouse will not appear on screen
+            paused = false;
+        }
+
+        function draw() {
+            background(505); //sets color of background
+            moveBall();
+            checkCollide();
+            drawPaddle();
+            drawBall();
+            textSize(15); //size of letters that appears on screen
+            text("Score:" + score ,10,50) //prints score
+             if (key=="p") { //space key is pressed
+             ballX = ballSpeedX; //restart ball like beginning
+              ballY= ballSpeedY //restart ball like beginning
+            }
+
+        }
+           function mousePressed(){
+             
+           
+            if (paused){ //if paused equal false
+                paused = false
+            }
+          else {
+                paused = true //if its not false its true
+            }
+           }
+  
+ 
+
+        function moveBall() {
+            ballX = ballX + ballSpeedX; //moves ball right
+            ballY = ballY + ballSpeedY; //ball moves from the top top of screen down
+         
+            console.log("ballSpeedX: " + ballSpeedX + 
+                               ", ballSpeedY: " + ballSpeedY);
+        }
+
+        function checkCollide() {
+            if (ballX < 0 || ballX > width) { //ball hits left or right
+                ballSpeedX = ballSpeedX * -1; //ball switches directions
+            }
+            if (ballY < 0) { //when ball hits top of screen
+                ballSpeedY = ballSpeedY * -1; //ball falls down the screen
+            }
+            if (ballY > height - paddleHeight) { //when ball hits paddle
+                if (ballX > mouseX && ballX < mouseX + 200) { //ball hits the paddle
+                    ballSpeedY = ballSpeedY * -1; //ball bounces different direction
+                    score=score+2 //score increases by two
+                    paddleWidth=paddleWidth-4 //paddle size dreceases 
+                } 
+                else {
+                    text("GAME OVER!", width / 2, height / 2); //ball does not hit on paddle game ends
+                    noLoop(); //no repitition
+                }
+            }
+        }
+        function drawBall() { //draws ball
+            strokeWeight(4); //creates dark outer lining on ball
+            ellipse(ballX, ballY, 20, 20); //size of ball
+        }
+
+        function drawPaddle() { //draws paddle
+            strokeWeight(4); //creates outter lining of paddle
+            rect(mouseX, height - paddleHeight - 4,paddleWidth, paddleHeight); //size of paddle
+       {
+
+       }
+
+   
+       
+     
+
+        }
+    </script>
+</head>
+
+<body>
+<form><input TYPE="button" onClick="history.go(0)" value="Reset"></form>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/katyaa4703/p5js/blob/gh-pages/PongRemix.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
+
+v    
